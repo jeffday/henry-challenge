@@ -5,7 +5,7 @@ class AddProviderIdToOpenings < ActiveRecord::Migration[7.1]
   end
 
   def down
-    remove_foreign_key :openings, :provider_id
+    remove_foreign_key :openings, :providers
     remove_column :openings, :provider_id
   end
 end

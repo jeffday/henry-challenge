@@ -20,6 +20,7 @@ POST reservations
 ```
 
 Allows clients to confirm their reservation
-```  PUT reservations
+```  
+PUT reservations
     reservation_id: id
 ```

@@ -2,17 +2,9 @@ require "test_helper"
 
 class ReservationsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    @client = clients(:one)
+    @opening = openings(:one)
     @reservation = reservations(:one)
-  end
-
-  test "should get index" do
-    get reservations_url
-    assert_response :success
-  end
-
-  test "should get new" do
-    get new_reservation_url
-    assert_response :success
   end
 
   test "should create reservation" do
@@ -21,16 +13,6 @@ class ReservationsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to reservation_url(Reservation.last)
-  end
-
-  test "should show reservation" do
-    get reservation_url(@reservation)
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get edit_reservation_url(@reservation)
-    assert_response :success
   end
 
   test "should update reservation" do

@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  provider_id: 
+  start_time: 2023-11-19 13:02:40
+  end_time: 2023-11-19 13:02:40
+
+two:
+  provider_id: 
+  start_time: 2023-11-19 13:02:40
+  end_time: 2023-11-19 13:02:40

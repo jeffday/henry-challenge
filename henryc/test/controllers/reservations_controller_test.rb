@@ -3,20 +3,20 @@ require "test_helper"
 class ReservationsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @client = clients(:one)
-    @opening = openings(:one)
+    @appointment = appointments(:one)
     @reservation = reservations(:one)
   end
 
   test "should create reservation" do
     assert_difference("Reservation.count") do
-      post reservations_url, params: { reservation: { client_id: @reservation.client_id, opening_id: @reservation.opening_id } }
+      post reservations_url, params: { reservation: { client_id: @reservation.client_id, appointment_id: @appointment.id } }
     end
 
     assert_response :created
   end
 
   test "should update reservation" do
-    patch reservation_url(@reservation), params: { reservation: { client_id: @reservation.client_id, opening_id: @reservation.opening_id } }
+    patch reservation_url(@reservation), params: { reservation: { client_id: @reservation.client_id, appointment_id: @appointment.id } }
     assert_response :ok
   end
 

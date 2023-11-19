@@ -5,12 +5,12 @@ Allows providers to submit times they are available for appointments
     end: datetime
 
 Allows a client to retrieve a list of available appointment slots
- GET openings
+ GET appointments
     provider_id: id
 
 Allows clients to reserve an available appointment slot
   POST reservations
-    opening_id: id
+    appointment_id: id
     client_id: id
 
 Allows clients to confirm their reservation

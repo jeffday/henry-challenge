@@ -5,10 +5,7 @@ namespace :db do
 
         client = Client.create(first_name: "chondracanthus", last_name: "lepophidii")
 
-        openings = []
-
         (1..5).each do |i|
-            Rails.logger.info(i)
             cur_date = Date.today + i
 
             start_date = DateTime.new(cur_date.year, cur_date.month, cur_date.day, 9, 0, 0)
@@ -16,9 +13,9 @@ namespace :db do
 
             opening = Opening.create(provider_id: provider.id, start: start_date, end: end_date)
 
-            openings << opening
+            opening.create_appointments
         end
 
-        reservation = Reservation.create(opening_id: openings[2].id, client_id: client.id)
+        reservation = Reservation.create(appointment_id: Appointment.last.id, client_id: client.id)
     end
 end

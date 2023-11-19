@@ -14,6 +14,14 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_19_055047) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "appointments", force: :cascade do |t|
+    t.bigint "provider_id"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "clients", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -37,7 +45,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_19_055047) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.bigint "opening_id"
+    t.bigint "appointment_id"
     t.bigint "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -45,6 +53,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_19_055047) do
   end
 
   add_foreign_key "openings", "providers"
+  add_foreign_key "reservations", "appointments"
   add_foreign_key "reservations", "clients"
-  add_foreign_key "reservations", "openings"
 end

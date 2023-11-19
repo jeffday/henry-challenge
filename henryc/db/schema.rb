@@ -22,9 +22,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_19_055047) do
   end
 
   create_table "openings", force: :cascade do |t|
-    t.date "date"
-    t.time "start"
-    t.time "end"
+    t.datetime "start"
+    t.datetime "end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "provider_id"

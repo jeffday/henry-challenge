@@ -8,7 +8,7 @@ class OpeningsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create opening" do
     assert_difference("Opening.count") do
-      post openings_url, params: { provider_id: @provider.id, opening: { end: @opening.end, start: @opening.start } }
+      post openings_url, params: { provider_id: @provider.id, end: Date.tomorrow + 1.days, start: Date.tomorrow }
     end
 
     assert_response :created

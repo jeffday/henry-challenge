@@ -1,9 +1,10 @@
 class AppointmentsController < ApplicationController
   before_action :set_provider
 
+  # TODO: pagination, passing a date as a parameter
   # GET /appointments or /appointments.json
   def index
-    @appointments = Appointment.where(provider_id: @provider.id)
+    @appointments = Appointment.where(provider_id: @provider.id, taken: false)
 
     respond_to do |format|
       format.json { render json: @appointments}

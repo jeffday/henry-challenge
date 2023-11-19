@@ -6,8 +6,10 @@ class Opening < ApplicationRecord
 
         number_of_appointments = window / (Appointment::APPOINTMENT_LENGTH)
 
+        end_offset = number_of_appointments.floor - 1
+
         # TODO: error handling if appointment creation fails
-        (0..number_of_appointments).each do |i|
+        (0..end_offset).each do |i|
             offset = i * Appointment::APPOINTMENT_LENGTH
 
             start_time = self.start + offset

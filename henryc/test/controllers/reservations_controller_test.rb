@@ -12,12 +12,12 @@ class ReservationsControllerTest < ActionDispatch::IntegrationTest
       post reservations_url, params: { reservation: { client_id: @reservation.client_id, opening_id: @reservation.opening_id } }
     end
 
-    assert_redirected_to reservation_url(Reservation.last)
+    assert_response :created
   end
 
   test "should update reservation" do
     patch reservation_url(@reservation), params: { reservation: { client_id: @reservation.client_id, opening_id: @reservation.opening_id } }
-    assert_redirected_to reservation_url(@reservation)
+    assert_response :ok
   end
 
   test "should destroy reservation" do
@@ -25,6 +25,6 @@ class ReservationsControllerTest < ActionDispatch::IntegrationTest
       delete reservation_url(@reservation)
     end
 
-    assert_redirected_to reservations_url
+    assert :no_content
   end
 end

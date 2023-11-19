@@ -7,7 +7,7 @@ class ReservationsController < ApplicationController
 
     respond_to do |format|
       if @reservation.save
-        format.json { render :show, status: :created, location: @reservation }
+        format.json { render json: {}, status: :created}
       else
         format.json { render json: @reservation.errors, status: :unprocessable_entity }
       end
@@ -18,7 +18,7 @@ class ReservationsController < ApplicationController
   def update
     respond_to do |format|
       if @reservation.update(reservation_params)
-        format.json { render :show, status: :ok, location: @reservation }
+        format.json { render json: {}, status: :ok}
       else
         format.json { render json: @reservation.errors, status: :unprocessable_entity }
       end
@@ -29,9 +29,7 @@ class ReservationsController < ApplicationController
   def destroy
     @reservation.destroy!
 
-    respond_to do |format|
-      format.json { head :no_content }
-    end
+    head :no_content
   end
 
   private

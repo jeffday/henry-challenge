@@ -3,7 +3,11 @@ class OpeningsController < ApplicationController
 
   # GET /openings or /openings.json
   def index
-    @openings = Opening.where({provider: @provider})
+    @openings = Opening.where({provider_id: @provider.id})
+
+    respond_to do |format|
+      format.json { render json: @openings}
+    end
   end
 
   # POST /openings or /openings.json
@@ -12,7 +16,7 @@ class OpeningsController < ApplicationController
 
     respond_to do |format|
       if @opening.save
-        format.json { render :show, status: :created, location: @opening }
+        format.json { render json: {}, status: :created}
       else
         format.json { render json: @opening.errors, status: :unprocessable_entity }
       end
@@ -22,6 +26,7 @@ class OpeningsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_provider
+      Rails.logger.info(params)
       @provider = Provider.find(params[:provider_id])
     end
 

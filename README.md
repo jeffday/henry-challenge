@@ -7,6 +7,7 @@
 1. Clone this repo: `git clone git@github.com:jeffday/henry-challenge.git`
 1. Install gems `cd henryc; bundle install`
 1. Run the server `rails s`
+1. Put some test data in the database so the endpoints actually return something interesting: `rake db:populate_database`
 1. Grab [Postman](https://www.postman.com/downloads/) or another API Client to test the different API endpoints:
 
 ### API Definition

@@ -1,3 +1,16 @@
+### Installation instructions:
+
+1. [Install Rails](https://gorails.com/setup) 
+1. I used `postgres` as my database, so follow the instructions in the rails installation guide for that if you don't already have it on your system
+  1. I used [rbenv](https://github.com/rbenv/rbenv) and [nvm](https://github.com/nvm-sh/nvm) instead of `asdf`, but it shouldn't make a huge difference.
+1. [Install Redis](https://redis.io/docs/install/install-redis/)
+1. Clone this repo: `git clone git@github.com:jeffday/henry-challenge.git`
+1. Install gems `cd henryc; bundle install`
+1. Run the server `rails s`
+1. Grab [Postman](https://www.postman.com/downloads/) or another API Client to test the different API endpoints:
+
+### API Definition
+
 Allows providers to submit times they are available for appointments
 ```
  POST /openings
@@ -24,3 +37,7 @@ Allows clients to confirm their reservation
 PUT /reservations
     reservation_id: id
 ```
+
+### Testing
+
+I've got a basic set of unit tests that verify the requirements are followed; you can run them with `rails test`
